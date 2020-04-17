@@ -18,17 +18,19 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: 'black' },
+  loading: { color: 'blue' },
   /*
   ** Global CSS
   */
   css: [
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
+    '~/assets/css/tailwind.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,6 +44,8 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast'
   ],
   /*
   ** Build configuration
@@ -51,6 +55,30 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+
+  auth: {
+    redirect: {
+      login: '/auth/login',
+      logout: '/logout',
+      callback: '/auth/login',
+      home: '/dashboard'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'https://halyab.com/accounts/', method: 'post'},
+          logout: { url: '/api/auth/logout', method: 'post'},
+          user: { url: 'https://halyab.com/accounts/users/', method: 'get'}
+        },
+        // set true for cookie based auth
+        tokenRequired: false,
+        // header name
+        tokenName: 'Authorization',
+        tokenType: 'bearer',
+        autoFetchUser: false,
+      }
     }
   }
 }
