@@ -2,13 +2,23 @@
     <div class="head">
       <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm lg:py-0 py-2">
     <div class="flex-1 flex justify-between items-center">
-      <div>
-      <button class="bg-white border border-gray-500 hover:bg-blue-600 text-primary font-bold py-2 px-4 rounded">
-        ورود
-      </button>
-      <button class="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-        ثبت نام
-      </button>
+      <div v-if="!$auth.loggedIn">
+        <nuxt-link to="/auth/login">
+          <button class="bg-white border border-gray-500 hover:bg-blue-600 text-primary font-bold py-2 px-4 rounded">
+          ورود
+          </button>
+        </nuxt-link>
+        <nuxt-link to="/auth/register">
+          <button class="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+          ثبت نام
+          </button>
+      </nuxt-link>
+      </div>
+      <div v-else class="flex justify-center items-center">
+        <img class="rounded-full w-10 h-10 border-2 border-transparent hover:border-primary" v-bind:src="$auth.user.profile_pic_thumb" v-bind:alt="$auth.user.full_name">
+        <p class="p-2">
+          {{ $auth.user.full_name }}
+        </p>
       </div>
       <!-- <a href="#">
       <img src="~/assets/img/halyab_icon.png" alt="icon" class="w-10" style="border-radius: 50%;">
@@ -27,7 +37,9 @@
         <!-- <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-primary lg:mb-0 mb-2" href="#">Support</a></li> -->
       </ul>
     </nav>
-        <img src="~/assets/icons/full-logo.png" alt="icon" style="width:30%">
+      <nuxt-link to="/">
+        <img src="~/assets/icons/full-logo.png" alt="icon" style="width:60%">
+      </nuxt-link>
       <!-- <a href="#" class="lg:ml-8 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
         <img src="~/assets/img/halyab_icon.png" alt="icon" class="w-10" style="border-radius: 50%;">
       </a> -->

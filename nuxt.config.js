@@ -57,7 +57,9 @@ module.exports = {
     extend (config, ctx) {
     }
   },
-
+  axios: {
+    baseURL: 'https://halyab.com'
+  },
   auth: {
     redirect: {
       login: '/auth/login',
@@ -68,16 +70,16 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'https://halyab.com/accounts/', method: 'post'},
+          login: { url: '/accounts/', method: 'post', propertyName: 'access'},
           logout: { url: '/api/auth/logout', method: 'post'},
-          user: { url: 'https://halyab.com/accounts/users/', method: 'get'}
+          user: { url: '/accounts/users/', method: 'get', propertyName: 'user_info'}
         },
         // set true for cookie based auth
-        tokenRequired: false,
-        // header name
-        tokenName: 'Authorization',
-        tokenType: 'bearer',
-        autoFetchUser: false,
+        // tokenRequired: true,
+        // // header name
+        // tokenName: 'Authorization',
+        tokenType: 'Bearer',
+        // autoFetchUser: false,
       }
     }
   }

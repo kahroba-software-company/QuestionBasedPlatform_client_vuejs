@@ -2,12 +2,7 @@
   <div class="login w-full sm:w-auto">
       <Nav />
         <div class="sm:w-auto w-full">
-        <!-- <div class="p-10 flex flex-col justify-center items-center">
-                <h1 class="p-2">
-                    تعداد سطر و ستون ها را وارد کنید.
-                </h1>
-            </div> -->
-        <form @submit="authLogin" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
+        <form @keydown.enter="login" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
             <div class="px-8 pt-6 mb-4">
               <div>
                 <nuxt-link to="/">
@@ -35,7 +30,7 @@
               <input v-model="login.password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pass" type="text" placeholder="رمز عبور" required/>
               </div>
               <div class="flex items-center justify-center">
-              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
+              <button @click="authLogin" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);">
                   ورود
               </button>
               </div>
@@ -69,16 +64,20 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Nav from '~/components/home_nav_unsigned.vue'
+import Nav from '~/components/navbar.vue'
 
 export default {
-  // async asyncData({ $axios }) {
-  //     const response = await $axios.$post("https://halyab.com/accounts/", {
-  //       username: "09011887171",
-  //       password: "12345"
-  //     });
-  //     console.log({response})
+
+  // async asyncData({ $axios, $auth }) {
+  //     // const response = await $axios.$post("/accounts/", {
+  //     //   username: "09011887171",
+  //     //   password: "12345"
+  //     // });
+  //     const resp = await $auth.loginWith('local', {data: {
+  //       username: '09011887171',
+  //       password: '12345'
+  //     }})
+  //     console.log($auth.loggedIn)
   // },
   auth: false,
   data() {
@@ -90,41 +89,17 @@ export default {
     }
   },
   methods: {
-    async authLogin() {
-        this.$auth.loginWith('local', {data: this.login})
-          .then((res) => {
-            console.log(res.data)
-            this.$axios.$get("https://halyab.com/accounts/users/", {headers: {Authorization: 'bearer ' + res.data.access}})
-            .then((resp) => {
-              console.log(resp.data);
-            })
-            // this.$auth.setUserToken('local', res.data.access)
-            // .then((res) => {
-            //   console.log("asdjhaskdjahsdkjadshaksjdhaksjdhaskdjadsk")
-            // }).catch((e) => {
-            //   console.error(e);
-            // })
-
-          }).catch((e) => {
-            console.log({e});
-            // this.$toast.error({e})
-          });
-        // .then((res) => {
-        //   console.log({res});
-        //   alert('alah')
-        //   // this.$auth.setUserToken(res.data.access)
-        //   //   .then(() => {
-        //   //     console.log("alllaaaah")
-        //   //   }).catch(() => {
-        //   //     console.log("error")
-        //   //   })
-        // }).catch((e) => {
-        //   alert(e)
-        // })
+    authLogin() {
+      this.$auth.loginWith('local', {data: this.login})
+      .then((res) => {
+        this.$router.push("/dashboard")
+      })
+      .catch((e) => {
+        console.log(e);
+      })
     }
   },
   components: {
-    Logo,
     Nav
   }
 }
