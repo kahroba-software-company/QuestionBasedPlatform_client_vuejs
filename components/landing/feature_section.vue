@@ -9,7 +9,7 @@
             </div>
             <div class="flex flex-row flex-wrap justify-center align-center text-center sm:overflow-hidden" style="height: 60%; overflow: overlay;">
                 <div class="flex flex-col justify-start px-6">
-                    <img src="~/assets/icons/problem-solving.svg" alt="رفع اشکال آنلاین">
+                    <img src="~/assets/icons/problem-solving.svg" class="w-20" alt="رفع اشکال آنلاین">
                     <h2 class="text-primary text-xl font-bold p-8">
                         رفع اشکال آنلاین
                     </h2>
@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="flex flex-col justify-start px-6">
-                    <img src="~/assets/icons/problem.svg" alt="مجرب ترین اساتید">
+                    <img src="~/assets/icons/problem.svg" class="w-20" alt="مجرب ترین اساتید">
                     <h2 class="text-primary text-xl font-bold p-8">
                         مجرب ترین اساتید
                     </h2>
@@ -26,8 +26,8 @@
                         اساتید حل یاب از دانش آموخته <br> های معتبر ترین دانشگاه های <br> کشور و رتبه های برتر کنکور <br> انتخاب می شوند
                     </p>
                 </div>
-                <div class="flex flex-col justify-start px-6">
-                    <img src="~/assets/icons/trust.svg" alt="امنیت و اعتماد">
+                <div class="flex flex-col justify-start px-6 ">
+                    <img src="~/assets/icons/trust.svg" class="w-20" alt="امنیت و اعتماد">
                     <h2 class="text-primary text-xl font-bold p-8">
                         امنیت و اعتماد
                     </h2>
@@ -36,7 +36,7 @@
                     </p>
                 </div>
                 <div class="flex flex-col justify-start px-6">
-                    <img src="~/assets/icons/problem-solving.svg" alt="پرداخت آسان">
+                    <img src="~/assets/icons/problem-solving.svg" class="w-20" alt="پرداخت آسان">
                     <h2 class="text-primary text-xl font-bold p-8">
                         پرداخت آسان
                     </h2>
