@@ -1,5 +1,5 @@
 <template>
-    <div class="prof-sec bg-white" style="border-bottom: 1px solid #707070;">
+    <div class="prof-sec bg-white">
         <div class="container flex-col">
             <div class="flex flex-row justify-center items-center text-center pb-6" style="height: 20%;">
                 <h2 class="text-primary text-xl sm:text-4xl font-bold flex align-center justify-center">
@@ -23,6 +23,7 @@
             </div>
             </div>
         </div>
+        <hr class="hidden sm:block sm:w-full">
     </div>
 </template>
 

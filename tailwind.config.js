@@ -10,9 +10,17 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      height: {
+        fit: 'fit-content',
+      },
+      width: {
+        fit: 'fit-content',
+      },
       colors: {
         primary: '#1251a4',
-        secondary: '#4ca0d8'
+        secondary: '#4ca0d8',
+        primedark: '#0b2c57',
+        graybg: '#525f7f'
       }
     }
   },

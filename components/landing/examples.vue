@@ -10,15 +10,16 @@
             <div class="flex flex-row justify-center align-center text-center" style="width: 100%; height: 60%">
                 <div class="flex flex-col justify-between sm:justify-evenly items-center" style="width: 50%;">
                     <h2 class="text-xl pt-5 sm:pt-20 font-bold text-right items-start w-full flex">
-                        همین الان با اپلیکیشن حل یاب به راحتی بر روی تلفن همراه <br class="hidden sm:block"> سوال یا پروژه خود را به اساتید مجرب حل یاب بسپارید 
+                        در این قسمت ، می توانید پروژه ها و سوالات دیگران <br class="hidden sm:block"> را مشاهده فرمایید و روند پاسخگویی به آن ها را بررسی کنید
                     </h2>
-                    <div class="flex flex-col sm:flex-row flex-wrap justify-start items-center">
-                        <img class="w-full sm:w-2/5 p-1" style="object-fit: contain;" src="~/assets/img/bazzar.png" alt="کافه بازار">
-                        <img class="w-full sm:w-2/5 p-1" style="object-fit: contain;" src="~/assets/img/google-play.png" alt="گوگل پلی">
-                    </div>
+                    <div class="flex justify-start items-center w-full py-6 h-full sm:h-2/5">
+                    <button class="bg-secondary rounded text-white sm:my-8 w-40 h-16 sm:w-56 sm:h-20">
+                        مشاهده پروژه ها
+                    </button>
+                </div>
                 </div>
                 <div class="hidden sm:flex justify-end items-center pl-16" style="width: 50%;">
-                    <img style="width: 50%" src="~/assets/img/app.svg" alt="اسکرین شات اپلیکیشن">
+                    <img style="width: 100%" src="~/assets/img/questions.jpeg" alt="سوالات">
                 </div>
             </div>
         </div>
