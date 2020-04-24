@@ -8,7 +8,7 @@
                 <img class="w-1/2" src="~/assets/icons/full-logo.png" alt="لوگوی حل یاب">
             </div>
             <div class="flex flex-row flex-wrap justify-center align-center text-center sm:overflow-hidden" style="height: 60%; overflow: overlay;">
-                <div class="flex flex-col justify-start px-6">
+                <div class="flex flex-col justify-start items-center px-6">
                     <img src="~/assets/icons/problem-solving.svg" class="w-20" alt="رفع اشکال آنلاین">
                     <h2 class="text-primary text-xl font-bold p-8">
                         رفع اشکال آنلاین
@@ -17,7 +17,7 @@
                         حل یاب اولین سرویس ارائه <br> خدمات آنلاین رفع اشکال با <br> توضیحات کامل متناسب با <br> بودجه دانش آموز می باشد , که <br> در 7 روز هفته و 24 ساعت شبانه <br> روز در دسترس شماست
                     </p>
                 </div>
-                <div class="flex flex-col justify-start px-6">
+                <div class="flex flex-col justify-start items-center px-6">
                     <img src="~/assets/icons/problem.svg" class="w-20" alt="مجرب ترین اساتید">
                     <h2 class="text-primary text-xl font-bold p-8">
                         مجرب ترین اساتید
@@ -26,7 +26,7 @@
                         اساتید حل یاب از دانش آموخته <br> های معتبر ترین دانشگاه های <br> کشور و رتبه های برتر کنکور <br> انتخاب می شوند
                     </p>
                 </div>
-                <div class="flex flex-col justify-start px-6 ">
+                <div class="flex flex-col justify-start items-center px-6 ">
                     <img src="~/assets/icons/trust.svg" class="w-20" alt="امنیت و اعتماد">
                     <h2 class="text-primary text-xl font-bold p-8">
                         امنیت و اعتماد
@@ -35,7 +35,7 @@
                         حل یاب برای اطمینان و اعتماد <br> سازی در مورد خدمات خود , برای <br> اولین بار سیستم داوری را در <br> پلتفرم خود قرار داده است
                     </p>
                 </div>
-                <div class="flex flex-col justify-start px-6">
+                <div class="flex flex-col justify-start items-center px-6">
                     <img src="~/assets/icons/problem-solving.svg" class="w-20" alt="پرداخت آسان">
                     <h2 class="text-primary text-xl font-bold p-8">
                         پرداخت آسان

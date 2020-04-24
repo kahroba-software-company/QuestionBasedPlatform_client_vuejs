@@ -4,26 +4,44 @@
             <h2>
                 {{ title }}
             </h2>
-            <button class="bg-secondary hover:shadow-md text-sm text-white font-bold p-1 rounded focus:outline-none focus:shadow-outline">
-                مشاهده لیست
+            <button class="bg-white text-sm text-secondary font-bold p-1 rounded focus:outline-none focus:shadow-outline">
+                مشاهده همه
             </button>
         </div>
         <hr class="w-full">
         <div class="responsive-table mt-2">
             <table class="w-full">
-                <thead class="w-full p-4">
+                <thead v-if="items.length !== 0" class="w-full p-4">
                     <tr class="w-full">
                         <th class="text-right border-b p-2" v-for="head in heads" v-bind:key="head.id" >
                             {{ head.persian }}
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <thead v-else>
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody v-if="items.length !== 0">
                     <tr class="border-b" v-for="item in items" v-bind:key="item.id">
                         <td class="p-4" v-for="head in heads" v-bind:key="head.id">
                             {{ item[head.english] }}
                         </td>
                     </tr>
+                </tbody>
+                <tbody v-else class="w-full">
+                    <div class="w-full flex flex-col justify-center items-center p-12">
+                        <img class="w-20" src="~/assets/icons/empty-box.svg" alt="جعبه خالی">
+                        <p class="font-bold">
+                            نتیجه ای یافت نشد
+                        </p>
+                        <p>
+                            لیست پروژه ها خالیست !
+                        </p>
+                    </div>
                 </tbody>
             </table>
         </div>
