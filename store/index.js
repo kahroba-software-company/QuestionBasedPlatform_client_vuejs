@@ -6,6 +6,11 @@ export const state = () => ({
   activation: {
     resend: false,
     time: '',
+  },
+  user: {
+    dashboard: {
+      page: "dashboard"
+    }
   }
 })
 
@@ -19,5 +24,8 @@ export const mutations = {
   },
   setTime (state, time) {
     state.activation.time = time;
+  },
+  setUserDashPage (state, page) {
+    state.user.dashboard.page = page;
   }
 }

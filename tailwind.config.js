@@ -10,9 +10,24 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      padding: {
+        '250': '250px'
+      },
+      height: {
+        fit: 'fit-content',
+        dash: '92vh'
+      },
+      width: {
+        fit: 'fit-content',
+      },
       colors: {
         primary: '#1251a4',
-        secondary: '#4ca0d8'
+        secondary: '#4ca0d8',
+        primedark: '#0b2c57',
+        graybg: '#525f7f',
+        green: '#17c698',
+        orange: '#cf8908',
+        red: '#ed1c24'
       }
     }
   },

@@ -1,6 +1,5 @@
 <template>
   <div class="activation w-full sm:w-auto">
-      <Nav />
         <div class="sm:w-auto w-full">
         <form @keydown.enter="login" class="bg-white shadow-lg rounded-lg flex w-max-md justify-center m-4 border">
             <div class="px-8 pt-6 mb-4">
@@ -63,7 +62,6 @@
 </template>
 
 <script>
-import Nav from '~/components/navbar.vue'
 
 export default {
   auth: false,
@@ -87,7 +85,7 @@ export default {
         .then((res) => {
             this.$auth.setUserToken(res.access) 
             .then((res) => {
-                this.$router.push("/dashboard")
+                this.$router.push("/user/dashboard")
             });
         })
         .catch((e) => {
@@ -133,8 +131,8 @@ export default {
     },
   },
   components: {
-    Nav
-  }
+  },
+  layout: "landing"
 }
 </script>
 
