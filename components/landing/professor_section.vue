@@ -9,7 +9,7 @@
             </div>
             <div class="flex flex-row justify-center items-center" style="height: 60%;">
             <div class="hidden sm:flex justify-start items-center">
-                <img style="width: 80%;" src="~/assets/img/professor.svg" alt="ارسال رزومه استاد">
+                <img style="width: 65%;" src="~/assets/img/professor.svg"  alt="ارسال رزومه استاد">
             </div>
             <div class="flex flex-col justify-between sm:justify-evenly items-center" style="width: 50%; height: 100%">
                 <h2 class="text-xl sm:pt-20 font-bold text-right items-start w-full flex">
