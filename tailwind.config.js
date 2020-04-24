@@ -15,6 +15,7 @@ module.exports = {
       },
       height: {
         fit: 'fit-content',
+        dash: '92vh'
       },
       width: {
         fit: 'fit-content',

@@ -9,7 +9,7 @@
                     افزایش اعتبار
                     <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
                 </button>
-                <small class="pt-2">
+                <small class="pt-1">
                     اعتبار شما: ۱۰۰۰ تومان
                 </small>
             </div>
@@ -23,7 +23,7 @@
                 لیست تراکنش ها خالیست !
             </p>
         </div>
-        <div v-else class="w-full h-full bg-white flex flex-col justify-evenly">
+        <div v-else class="w-full h-full bg-white flex flex-col justify-evenly rounded-b-md">
             <div class="w-9/10 flex bg-white m-2 shadow-md rounded-md h-fit" v-for="tsa in transactions" v-bind:key="tsa.id">
                 <div class="w-fit rounded-md rounded-l-none h-auto flex justify-center items-center" style="writing-mode: tb-rl;">
                     <p class="p-2">

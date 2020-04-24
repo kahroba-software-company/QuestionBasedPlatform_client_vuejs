@@ -1,5 +1,5 @@
 <template>
-  <div class="user-dash sm:pr-250 sm:h-screen flex flex-col">
+  <div class="user-dash sm:pr-250 sm:h-dash flex flex-col">
       <!-- <Title title="پیشخوان" /> -->
       <div class="p-4 flex sm:flex-row flex-col w-full">
         <div class="sm:w-2/3 w-full sm:pl-4">
