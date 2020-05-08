@@ -3,7 +3,7 @@
     <div class=" flex-col">
                
     <div class="mx-auto max-w-6xl p-12 ">
-   <div class="flex flex-col md:flex-row shadow justify-center bg-blue-500 rounded">
+   <div class="flex flex-col md:flex-row shadow justify-center bg-blue-700 rounded">
      <div></div>
       <div class="xl:w-1/2 max-w-md my-5 mx-5 flex flex-col justify-center ">
          <div class="text-bold md:text-5xl  text-white  ">به ما ملحق شوید !</div>
@@ -25,7 +25,7 @@
             </div>
             <div class="mt-6 relative">
                <button class="shadow-md font-medium py-2 px-4 text-green-100 text-white text-bold text-2xl
-                  cursor-pointer bg-blue-500 rounded text-lg tr-mt   text-center w-full">ارسال</button>
+                  cursor-pointer bg-blue-600 rounded text-lg tr-mt   text-center w-full">ارسال</button>
             </div>
          </form>
       </div>

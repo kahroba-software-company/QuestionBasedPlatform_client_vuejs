@@ -30,9 +30,10 @@
       <div class="hidden justify-end lg:flex lg:items-center lg:w-auto w-full" id="menu">
         <nav>
           <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="#">درباره ما</a></li>
-            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="#">تماس با ما</a></li>
-            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="#">خانه</a></li>
+            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="/join-us"> پیوستن به ما </a></li>
+            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="/about-us">درباره ما</a></li>
+            <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="/contact-us">تماس با ما</a></li>
+            <!-- <li><a class="lg:p-3 py-3 px-0 block border-b-2 border-transparent hover:border-primary" href="#">خانه</a></li> -->
             <!-- <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-primary lg:mb-0 mb-2" href="#">Support</a></li> -->
           </ul>
         </nav>
