@@ -1,8 +1,6 @@
 <template>
-    <div class="app-sec bg-white">
-    <div class=" flex-col">
-               
-    <div class="mx-auto max-w-6xl p-12 ">
+    <div class="app-sec bg-white flex items-center justify-center">
+    <div class="mx-auto max-w-6xl p-12" style="width: inherit">
    <div class="flex flex-col md:flex-row shadow justify-center bg-blue-700 rounded">
      <div></div>
       <div class="xl:w-1/2 max-w-md my-5 mx-5 flex flex-col justify-center ">
@@ -31,9 +29,7 @@
       </div>
    </div>
 </div>
-    </div>    
-        <hr class="hidden sm:block sm:w-full">
-    </div>
+</div>
 </template>
 
 <style>
