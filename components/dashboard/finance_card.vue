@@ -5,12 +5,11 @@
                 لیست تراکنش ها
             </div>
             <div class="flex flex-col">
-                <button class="flex items-center justify-center bg-green p-1 shadow-sm hover:shadow-md text-sm text-white font-bold rounded focus:outline-none focus:shadow-outline">
+                <button class="bg-white text-sm text-green font-bold p-1 rounded focus:outline-none focus:shadow-outline">
                     افزایش اعتبار
-                    <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
                 </button>
                 <small class="pt-1">
-                    اعتبار شما: ۱۰۰۰ تومان
+                    اعتبار شما: {{ this.$auth.user.current_balance }} تومان
                 </small>
             </div>
         </div>

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="user-layout">
     <div class="user-head flex shadow-md">
         <div class="w-full sm:px-16 px-6 bg-white flex flex-wrap items-center shadow-sm sm:py-0 py-2">
             <div class="flex flex justify-between items-center py-2">
                 <div class="flex justify-center items-center">
-                    <img class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
+                    <img @click="isProfOpen = !isProfOpen" class="rounded-full w-12 border-2 border-transparent hover:border-primary mx-1" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' ">
                     <div class="flex flex-col justify-center items-start">
                         <p>
                             {{ $auth.user.full_name ? $auth.user.full_name : 'کاربر مهمان' }}
@@ -15,6 +15,30 @@
                     </div>
                     <img class="w-6 mx-4" src="~/assets/icons/bell-regular.svg" alt="نوتیفیکیشن">
                 </div>
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
+                >
+                <div v-show="isProfOpen" class="origin-bottom-right absolute left-1-5 sm:left-4 top-5 sm:top-4 mt-2 w-32 rounded-md shadow-lg" style="direction: rtl;">
+                      <div class="rounded-md bg-white shadow-xs">
+                        <div class="py-1">
+                          <nuxt-link to="/user/profile" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">حساب کاربری</nuxt-link>
+                          <hr>
+                          <nuxt-link to="/user/dashboard" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">پیشخوان</nuxt-link>
+                          <hr>
+                          <form method="POST" action="/auth/logout">
+                            <button type="submit" class="block w-full text-right px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                              خروج
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                </transition>
           <!-- <a href="#">
           <img src="~/assets/img/halyab_icon.png" alt="icon" class="w-10" style="border-radius: 50%;">
         </a> -->
@@ -26,18 +50,24 @@
           </div>
           <nav class="text-white">
               <ul>
+                <nuxt-link to="dashboard">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'dashboard' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-home.svg" alt="پیشخوان">
                       پیشخوان
                   </li>
-                  <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'project' ? 'bg-primedark rounded-md' : '' ">
+                </nuxt-link>
+                <nuxt-link to="questions">
+                  <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'questions' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-file-plus.svg" alt="ثبت پروژه">
                       ثبت پروژه
                   </li>
+                </nuxt-link>
+                <nuxt-link to="profile">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'profile' ? 'bg-primedark rounded-md' : '' ">
-                    <img class="w-4 mx-2" src="~/assets/icons/icon-user.svg" alt="پروفایل">
-                      پروفایل
+                    <img class="w-4 mx-2" src="~/assets/icons/icon-user.svg" alt="حساب کاربر">
+                      حساب کاربر
                   </li>
+                </nuxt-link>
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'finance' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-refresh.svg" alt="گردش حساب">
                       گردش حساب
@@ -58,7 +88,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      isProfOpen: false
+    }
+  }
+}
+</script>
+
 <style>
+
+.user-layout {
+  height: 100%;
+}
 
 .user-head {
     width: 100vw;
@@ -79,5 +123,23 @@
     padding-right: 1rem;
     padding-left: 1rem;
 }
+
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+#__layout {
+  height: 100%;
+}
+
 
 </style>

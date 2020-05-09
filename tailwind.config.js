@@ -10,15 +10,22 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      inset: {
+        '1-5': '1.5rem',
+        '2':'2rem',
+        '4': '4rem',
+        '5': '5rem'
+      },
       padding: {
         '250': '250px'
       },
       height: {
         fit: 'fit-content',
-        dash: '92vh'
+        dash: '91vh'
       },
       width: {
         fit: 'fit-content',
+        r35: '35rem'
       },
       colors: {
         primary: '#1251a4',
