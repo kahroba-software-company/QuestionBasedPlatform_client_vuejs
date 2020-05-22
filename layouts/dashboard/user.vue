@@ -76,10 +76,12 @@
                     <img class="w-4 mx-2" src="~/assets/icons/icon-chat.svg" alt="تماس با ما">
                       تماس با ما
                   </li>
+                  <nuxt-link to="aboutus">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'aboutUs' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-exclamation.svg" alt="تماس با ما">
                       درباره ما
                   </li>
+                  </nuxt-link>
               </ul>
           </nav>
       </div>
