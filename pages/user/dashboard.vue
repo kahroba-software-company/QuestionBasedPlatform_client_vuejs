@@ -103,6 +103,7 @@ export default {
     Title,
     List,
     Finance
+
   },
   auth: true,
   layout: 'dashboard/user',
