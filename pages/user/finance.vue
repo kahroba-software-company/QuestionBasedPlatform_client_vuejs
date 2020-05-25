@@ -15,7 +15,7 @@
                 <div class="p-2 flex w-full justify-evenly">
                     <div class="responsive-table mt-2">
                         <table class="w-full">
-                            <thead class="w-full ">
+                            <thead v-show="items.length !== 0" class="w-full ">
                             <tr class="w-full border-b">
                                 <th class="pb-2">
                                     وضعیت
@@ -37,7 +37,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody v-if="items.length !== 0">
                             <tr v-for="item in items" v-bind:key="item.id" >
                                 <td class="p-4">
                                     <div class="flex justify-start items-center">
@@ -82,6 +82,17 @@
                                 </td>
                             </tr>
                         </tbody>
+                            <tbody v-else class="w-full">
+                                <div class="w-full flex flex-col justify-center items-center p-32">
+                                    <img class="w-20" src="~/assets/icons/empty-box.svg" alt="جعبه خالی">
+                                    <p class="font-bold">
+                                        نتیجه ای یافت نشد
+                                    </p>
+                                    <p>
+                                        لیست پروژه ها خالیست !
+                                    </p>
+                                </div>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -93,13 +104,7 @@
 <script>
 export default {
     mounted: function () {
-        this.$store.commit("setUserDashPage", 'questions');
-    },
-    async asyncData({ $axios }) {
-        const s_res = await $axios.$get("/api/questions")
-        return {
-            items: s_res.results,
-        }
+        this.$store.commit("setUserDashPage", 'finance');
     },
     data() {
         return {
@@ -107,7 +112,7 @@ export default {
         }
     },
     auth: true,
-    layout: 'dashboard/user',
+    layout: 'dashboard/user'
 }
 </script>
 

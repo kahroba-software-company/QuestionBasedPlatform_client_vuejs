@@ -11,6 +11,11 @@ export const state = () => ({
     dashboard: {
       page: "dashboard"
     }
+  },
+  question: {
+    add: {
+      selectedDate: new Date()
+    }
   }
 })
 
@@ -27,5 +32,8 @@ export const mutations = {
   },
   setUserDashPage (state, page) {
     state.user.dashboard.page = page;
+  },
+  setFormDate (state, date) {
+    state.question.add.selectedDate = date;
   }
 }

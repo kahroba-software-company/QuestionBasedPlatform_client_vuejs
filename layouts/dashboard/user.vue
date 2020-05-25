@@ -23,16 +23,30 @@
                   leave-class="transform opacity-100 scale-100"
                   leave-to-class="transform opacity-0 scale-95"
                 >
-                <div v-show="isProfOpen" class="origin-bottom-right absolute left-1-5 sm:left-4 top-5 sm:top-4 mt-2 w-32 rounded-md shadow-lg" style="direction: rtl;">
+                <div v-show="isProfOpen" class="origin-bottom-right absolute left-1-5 sm:left-4 top-5 sm:top-4 mt-2 w-48 rounded-md shadow-lg" style="direction: rtl;">
                       <div class="rounded-md bg-white shadow-xs">
                         <div class="py-1">
-                          <nuxt-link to="/user/profile" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">حساب کاربری</nuxt-link>
-                          <hr>
-                          <nuxt-link to="/user/dashboard" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">پیشخوان</nuxt-link>
+                          <nuxt-link to="/user/dashboard" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پیشخوان" >
+                            پیشخوان
+                          </nuxt-link>
+                          <nuxt-link to="/user/profile" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-user.svg" alt="پروفایل" >
+                            حساب کاربری
+                          </nuxt-link>
+                          <nuxt-link to="/user/questions" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-file-plus.svg" alt="پروژه های من" >
+                            پروژه های من 
+                          </nuxt-link>
+                          <nuxt-link to="/user/finance" class="flex items-center justify-start w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                            <img class="pl-2 w-6" src="~/assets/icons/icon-refresh.svg" alt="افزایش اعتبار" >
+                            افزایش اعتبار 
+                          </nuxt-link>
                           <hr>
                           <form method="POST" action="/auth/logout">
-                            <button type="submit" class="block w-full text-right px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-                              خروج
+                            <button type="submit" class="flex text-red items-center justify-start w-full text-right px-4 py-2 text-sm leading-5 hover:bg-gray-200 focus:outline-none focus:bg-gray-100">
+                              <img class="pl-2 w-1/6" src="~/assets/icons/logout.svg" alt="خروج" >
+                              خروج از حساب
                             </button>
                           </form>
                         </div>
@@ -50,19 +64,19 @@
           </div>
           <nav class="text-white">
               <ul>
-                <nuxt-link to="dashboard">
+                <nuxt-link to="/user/dashboard">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'dashboard' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-home.svg" alt="پیشخوان">
                       پیشخوان
                   </li>
                 </nuxt-link>
-                <nuxt-link to="questions">
+                <nuxt-link to="/user/questions">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'questions' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-file-plus.svg" alt="ثبت پروژه">
                       ثبت پروژه
                   </li>
                 </nuxt-link>
-                <nuxt-link to="profile">
+                <nuxt-link to="/user/profile">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'profile' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-user.svg" alt="حساب کاربر">
                       حساب کاربر
@@ -81,6 +95,7 @@
                       درباره ما
                   </li>
               </ul>
+              <hr>
           </nav>
       </div>
     </div>

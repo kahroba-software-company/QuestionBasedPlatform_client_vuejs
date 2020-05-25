@@ -3,32 +3,10 @@
         <div class="p-10 w-full h-full flex justify-center items-center">
             <div class="flex flex-col rounded-lg bg-white rouended-md w-r35 shadow-lg">
                 <div class="w-full flex flex-col justify-start items-end" >
-                    <div class="bg-image w-full h-20 rounded rounded-b-none flex justify-end">
-                        <img class="rounded-full w-32 h-32 shadow-2xl border-4 relative" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' " style="top: 14px; left:10px">
+                    <div class="bg-primary w-full h-32 rounded rounded-b-none flex justify-start">
+                        <img class="rounded-full w-32 h-32 shadow-2xl border-4 relative" v-bind:src="$auth.user.profile_pic_thumb ? $auth.user.profile_pic_thumb : $auth.user.default_profile_pic " v-bind:alt="$auth.user.full_name ? $auth.user.full_name : 'کاربر بدون نام' " style="top: 60px; right:18px">
                     </div>
                     <div class="flex flex w-full h-full justify-between items-end">
-                        <div class="h-full w-9/10 p-5">
-                        <div class="flex justify-between w-full border-b">
-                            <h3 class="p-4">
-                                اعتبار فعلی :
-                            </h3>
-                            <h3 class="p-4">
-                                {{
-                                    $auth.user.current_balance
-                                }} تومان
-                            </h3>
-                        </div>
-                        <div class="flex justify-between w-full">
-                            <h3 class="p-4">
-                                نوع حساب کاربری :
-                            </h3>
-                            <h3 class="p-4">
-                                {{
-                                    $auth.user.is_teacher ? 'استاد' : 'دانش آموز'
-                                }}
-                            </h3>
-                        </div>
-                        </div>
                         <div class="flex flex-col items-end h-full">
                             <h3 class="pl-5 pt-16 font-bold h-full">
                             {{
@@ -41,14 +19,36 @@
                                 }}
                             </small>
                             <div>
-                                <div class="flex w-full justify-start ">
-                                <button class="flex justify-center items-center text-red text-white font-bold py-2 my-4 ">
+                                <div class="flex w-full justify-end ">
+                                <button class="flex justify-center items-center text-red text-white font-bold py-2 m-4 ">
                                     خروج
                                 </button>
-                                <button class="flex justify-center items-center text-primary text-white font-bold p-2 m-4">
+                                <button class="flex justify-center items-center text-primary text-white font-bold p-2 my-4">
                                     تغییر رمز عبور
                                 </button>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="h-full w-9/10 p-5">
+                            <div class="flex justify-between w-full border-b">
+                                <h3 class="p-4">
+                                    اعتبار فعلی :
+                                </h3>
+                                <h3 class="p-4">
+                                    {{
+                                        $auth.user.current_balance
+                                    }} تومان
+                                </h3>
+                            </div>
+                            <div class="flex justify-between w-full">
+                                <h3 class="p-4">
+                                    نوع حساب کاربری :
+                                </h3>
+                                <h3 class="p-4">
+                                    {{
+                                        $auth.user.is_teacher ? 'استاد' : 'دانش آموز'
+                                    }}
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,6 @@
 export default {
     mounted: function () {
         this.$store.commit("setUserDashPage", 'profile');
-        console.log(this.$auth.user)
     },
     data() {
         return {

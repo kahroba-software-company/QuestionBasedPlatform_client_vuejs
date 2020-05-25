@@ -60,6 +60,25 @@ module.exports = {
   axios: {
     baseURL: 'https://halyab.com'
   },
+  toast: {
+    action : {
+      text : 'باشه',
+      onClick : (e, toastObject) => {
+          toastObject.goAway(0);
+      }
+    },
+    duration: 5000,
+    position: 'top-center',
+    register: [ // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
+  },
   auth: {
     redirect: {
       login: '/auth/login',
