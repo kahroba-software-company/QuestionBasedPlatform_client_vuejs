@@ -82,10 +82,12 @@
                       حساب کاربر
                   </li>
                 </nuxt-link>
+                <nuxt-link to="/user/trx">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'finance' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-refresh.svg" alt="گردش حساب">
                       گردش حساب
                   </li>
+                </nuxt-link>
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'contactUs' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-chat.svg" alt="تماس با ما">
                       تماس با ما
