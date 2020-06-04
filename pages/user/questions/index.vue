@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody v-if="items.length !== 0">
-                            <tr v-for="item in items" v-bind:key="item.id" >
+                            <tr @click="goToQuestion(item.id)" v-for="item in items" v-bind:key="item.id" >
                                 <td class="p-4">
                                     <div class="flex justify-start items-center">
                                         <div v-bind:class="item['state_name'] === 'is_active' ? 'bg-primary' : item['state_name'] === 'is_finished' ? 'bg-green' : item['state_name'] === 'wait_for_response' ? 'bg-secondary' : item['state_name'] === 'question_solved_request' ? 'bg-orange' : 'bg-gray-700' " class="w-5 h-5 rounded-full"/>
@@ -118,6 +118,11 @@ export default {
         return {
             items: []
         }
+    },
+    methods: {
+        goToQuestion(id) {
+            this.$router.push(`/user/questions/${id}`)
+        },
     },
     auth: true,
     layout: 'dashboard/user',

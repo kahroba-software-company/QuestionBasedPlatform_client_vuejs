@@ -27,11 +27,9 @@ export default {
     this.$store.commit("setUserDashPage", 'dashboard');
   },
     async asyncData({ $axios }) {
-      console.log("started")
     const f_res = await $axios.$get("/api/questions?others=true")
     const s_res = await $axios.$get("/api/questions")
     const t_res = await $axios.$get("/api/transactions")
-    console.log({t_res})
     return {
       others_items: f_res.results.slice(0,4),
       my_items: s_res.results.slice(0,4),

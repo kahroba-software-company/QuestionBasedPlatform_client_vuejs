@@ -36,13 +36,18 @@
                 <span class="text-small text-gray-600 mt-1">هیچ فایلی انتخاب نشده است</span>
               </li>
 
-              <li v-else-if="images.length !== 0" class="block p-1 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 h-24">
+              <li v-for="image of images" v-bind:key="image.id" class="block p-1 w-1/4 h-24 min-w-32">
                 <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-100 cursor-pointer relative text-transparent hover:text-white shadow-sm">
-                <img alt="upload preview" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" v-bind:src="images[0].id" />
+                <img v-bind:alt="image.name" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" v-bind:src="image.id" />
 
                 <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                    <h1 class="flex-1"></h1>
-                    <div class="flex">
+                    <h1 class="flex-1">{{ image.name.substr(0, 60) }}</h1>
+                    <div class="flex items-center">
+                    <div @click="cancelOneImage(image.id)" class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
+                        <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
+                        </svg>
+                    </div>
                     <span class="p-1">
                         <i>
                         <svg class="fill-current w-4 h-4 ml-auto pt-" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -50,51 +55,46 @@
                         </svg>
                         </i>
                     </span>
-
-                    <p class="p-1 size text-xs"></p>
-                    <button class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
-                        <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
-                        </svg>
-                    </button>
+                      <p class="p-1 size text-xs">{{image.size}}</p>
                     </div>
                 </section>
                 </article>
             </li>
 
-            <li v-else-if="files.length !== 0" class="block p-1 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 h-24">
+            <li v-for="file in files" v-bind:key="file.id" class="block p-1 w-1/4 h-24">
                 <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-100 cursor-pointer relative text-transparent hover:text-white shadow-sm">
-                <img alt="upload preview" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" />
+                <img v-bind:alt="file.name" class="img-preview hidden w-full h-full sticky object-cover rounded-md bg-fixed" />
+                <div class="flex w-full h-full justify-center items-center">
+                  <img class="w-1/4" src="~/assets/icons/file_icon.svg" v-bind:alt="file.name">
+                </div>
                 <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
-                    <h1 class="flex-1"></h1>
-                    <div class="flex">
+                    <h1 class="flex-1"> {{ file.name.substr(0, 60) }} </h1>
+                    <div class="flex items-center">
+                    <button @click="cancelOneFile(file.id)" class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
+                        <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
+                        </svg>
+                    </button>
                     <span class="p-1">
                         <i>
-                        <svg class="fill-current w-4 h-4 ml-auto pt-" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z" />
-                        </svg>
+                          <svg class="fill-current w-4 h-4 ml-auto pt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M15 2v5h5v15h-16v-20h11zm1-2h-14v24h20v-18l-6-6z" />
+                          </svg>
                         </i>
                     </span>
-                    <p class="p-1 size text-xs"></p>
-                    <button class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
-                        <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
-                        </svg>
-                    </button>
+                    <p class="p-1 size text-xs"> {{file.size}} </p>
                     </div>
                 </section>
                 </article>
             </li>
+
             </ul>
           </section>
 
           <!-- sticky footer -->
-          <footer class="flex justify-end px-8 pb-8 pt-4">
-            <button id="submit" class="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none">
-              آپلود انتخاب شده ها
-            </button>
-            <button id="cancel" class="mr-3 rounded-sm px-3 py-1 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
-              لغو
+          <footer class="flex justify-start px-8 pb-8 pt-4">
+            <button @click="cancel()" id="cancel" class="mr-3 rounded-md px-3 py-1 bg-primary text-white hover:shadow-md focus:shadow-outline focus:outline-none">
+              لغو همه
             </button>
           </footer>
         </article>
@@ -105,10 +105,6 @@
 <script>
 if (process.client) {
     var 
-    fileTempl = document.getElementById("file-template"),
-    imageTempl = document.getElementById("image-template"),
-    empty = document.getElementById("empty"),
-    gallery = document.getElementById("gallery"),
     overlay = document.getElementById("overlay"),
     hasFiles = ({ dataTransfer: { types = [] } }) =>
     types.indexOf("Files") > -1;
@@ -116,12 +112,13 @@ if (process.client) {
 }
 export default {
     methods: {
-        addFile(target, file) {
+        addFile(file) {
+          if (this.FILES.length < 4) {
             const isImage = file.type.match("image.*"),
                 objectURL = URL.createObjectURL(file),
                 obj = {};
 
-            obj.fileName = file.name;
+            obj.name = file.name;
             obj.id = objectURL;
             obj.size =
                 file.size > 1024
@@ -132,12 +129,15 @@ export default {
 
             isImage ? this.images.push(obj) : this.files.push(obj);
 
-            this.FILES[objectURL] = file;
+            this.FILES.push(file);
+          } else {
+            this.$toast.info('تعداد فایل های بارگذاری شده نمیتواند بیشتر از ۴ باشد')
+          }
         },
         dropHandler(e) {
             e.preventDefault();
             for (const file of e.dataTransfer.files) {
-                this.addFile(gallery, file);
+                this.addFile(file);
                 overlay.classList.remove("draggedover");
                 this.counter = 0;
             }
@@ -160,7 +160,7 @@ export default {
         dropHandler(e) {
             e.preventDefault();
             for (const file of e.dataTransfer.files) {
-                this.addFile(gallery, file);
+                this.addFile(file);
                 overlay.classList.remove("draggedover");
                 this.counter = 0;
             }
@@ -173,8 +173,22 @@ export default {
         },
         hiddenChange(e) {
             for (const file of e.target.files) {
-                this.addFile(gallery, file);
+                this.addFile(file);
             }
+        },
+        cancel() {
+            this.FILES = [];
+            this.counter = 0
+            this.images = [];
+            this.files = [];
+        },
+        cancelOneImage(id) {
+          this.images = this.images.filter(x => x.id !== id)
+          this.FILES = this.FILES.filter(x => x.id !== id)
+        },
+        cancelOneFile(id) {
+          this.files = this.files.filter(x => x.id !== id)
+          this.FILES = this.FILES.filter(x => x.id !== id)
         }
 
     },

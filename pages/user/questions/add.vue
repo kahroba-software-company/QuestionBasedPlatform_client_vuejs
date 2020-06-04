@@ -66,7 +66,7 @@
                                         </h3>
                                     </div>
                                     <div>
-                                        <input id="title" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="سوال ریاضیات" />
+                                        <input v-model="subject" id="subject" name="subject" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="سوال ریاضیات" />
                                     </div>
                                 </div>
                                 <hr>
@@ -77,7 +77,7 @@
                                     توضیحات
                                 </h3>
                                 <div>
-                                    <textarea class="form-input" name="desc" id="desc" cols="20" rows="3">
+                                    <textarea v-model="desc" class="form-input" name="desc" id="desc" cols="20" rows="3">
 
                                     </textarea>
                                 </div>
@@ -92,7 +92,7 @@
                                         </h3>
                                     </div>
                                     <div>
-                                        <input type="number" id="price" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="10000" />
+                                        <input v-model="max_cost" type="number" id="price" class="form-input block w-full pr-7 pl-12 sm:text-sm sm:leading-5" placeholder="10000" />
                                         <small> به تومان </small>
                                     </div>
                                 </div>
@@ -104,42 +104,6 @@
                                 </h3>
                                 <div class="w-full flex justify-center items-center p-2">
                                         <Uploader />
-                                        <!-- <div class="flex items-center justify-center bg-grey-lighter p-2">
-                                            <label class="w-32 flex flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-primary">
-                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                </svg>
-                                                <span class="mt-1">آپلود</span>
-                                                <input type='file'  class="hidden" />
-                                            </label>
-                                        </div>
-                                        <div class="flex items-center justify-center bg-grey-lighter p-2">
-                                            <label class="w-32 flex flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-primary">
-                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                </svg>
-                                                <span class="mt-1">آپلود</span>
-                                                <input type='file'  class="hidden" />
-                                            </label>
-                                        </div>
-                                        <div class="flex items-center justify-center bg-grey-lighter p-2">
-                                            <label class="w-32 flex flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-primary">
-                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                </svg>
-                                                <span class="mt-1">آپلود</span>
-                                                <input type='file'  class="hidden" />
-                                            </label>
-                                        </div>
-                                        <div class="flex items-center justify-center bg-grey-lighter p-2">
-                                            <label class="w-32 flex flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-primary">
-                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                </svg>
-                                                <span class="mt-1">آپلود</span>
-                                                <input type='file' class="hidden" id="uploaded" name="uploaded" @change="upload()"/>
-                                            </label>
-                                        </div> -->
                                 </div>
                                 <hr>
                             </div>
@@ -152,13 +116,13 @@
                                             </h3>
                                         </div>
                                         <div class="flex flex-col pt-4 pb-2 w-full">
-                                            <div class="flex w-full justify-between items-center">
+                                            <div class="flex flex-wrap w-full justify-between items-center">
                                             <div class="flex-col items-center">
                                                 <small>مقطع تحصیلی</small>
                                                 <div class="flex flex-col items-center relative">
                                                     <div class="w-full">
                                                         <div @click="opener(2)" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                            <input v-bind:value="dd2Selected" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
+                                                            <input v-bind:value="dd2Selected" placeholder="مقطع تحصیلی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
                                                             <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
                                                                 <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="ddOpen === 2 ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
@@ -228,7 +192,7 @@
                                             </div>
                                         </div>
                                             </div>
-                                            <div class="flex w-full justify-between items-center">
+                                            <div class="flex flex-wrap w-full justify-between items-center">
                                             <div class="flex-col items-center">
                                                 <small>عنوان درس</small>
                                                 <div class="flex flex-col items-center relative">
@@ -269,40 +233,6 @@
                                         <div class="flex-col items-center">
                                             <small>تاریخ پایان پرسش</small>
                                             <Picker v-bind:ddOpen="this.ddOpen" v-bind:opener="this.opener" />
-                                            <!-- <div class="flex flex-col items-center relative">
-                                                <div class="w-full">
-                                                    <div @click="dd5Open=!dd5Open" class="my-2 bg-white p-1 flex border rounded" style="border-color: #d2d6dc;">
-                                                        <input v-bind:value="dd5Selected" placeholder="پروژه درسی" disabled class="p-1 px-2 appearance-none outline-none w-full bg-white text-gray-800 unselecting">
-                                                        <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-r flex justify-center items-center border-gray-200">
-                                                            <div class="flex justify-center items-center cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4" v-bind:style="dd5Open ? 'transform: rotate(0deg);' : 'transform: rotate(180deg);'">
-                                                                    <polyline points="18 15 12 9 6 15"></polyline>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <transition
-                                                enter-active-class="transition ease-out duration-100"
-                                                enter-class="transform opacity-0 scale-95"
-                                                enter-to-class="transform opacity-100 scale-100"
-                                                leave-active-class="transition ease-in duration-75"
-                                                leave-class="transform opacity-100 scale-100"
-                                                leave-to-class="transform opacity-0 scale-95"
-                                                >
-                                                <div v-show="dd5Open" class="absolute shadow-md top-100 z-40 w-full lef-0 rounded max-h-select overflow-y-auto">
-                                                    <div class="flex flex-col w-full">
-                                                        <div @click="dd5Selected = item.name; dd5Open = !dd5Open" v-for="item in dd5" v-bind:key="item.id" class="cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100">
-                                                            <div class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-primary hover:text-teal-100" v-bind:class="dd5Selected === item.name ? 'border-primary': ''">
-                                                                <div class="w-full items-center flex">
-                                                                    <div class="mx-2 leading-6  "> {{item.name}} </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </transition>
-                                            </div> -->
                                         </div>
                                             </div>
                                         </div>
@@ -312,9 +242,9 @@
                             </div>
                             <div class="flex flex-col w-full p-2 justify-center items-center">
                                 <div class="flex w-1/2 justify-center items-center">
-                                    <button class="flex justify-center items-center bg-green w-full text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
+                                    <div @click="submitProject()" class="flex justify-center items-center bg-green w-full text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
                                         ثبت پروژه
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -337,6 +267,7 @@ export default {
         const s_res = await $axios.$get("/api/initdata")
         return {
             categories: s_res.categories,
+            dd1: s_res.question_types,
             dd2: s_res.halyab_grades,
         }
     },
@@ -370,12 +301,36 @@ export default {
             this.ddOpen = 0;
             this.dd4 = item.sub_cats.map(sub => ({id: sub.id, name: sub.name}) );
         },
-        upload() {
-            console.log('change')
+        submitProject() {
+            // const obj = {
+            //     subject: this.subject,
+            //     desc: this.desc,
+            //     grade: 5,
+            //     max_cost: this.max_cost,
+            //     max_allowed: "2020-12-29"
+            // }
+            const obj = {
+                subject: 'تست پروژه',
+                desc: 'تست پروژه',
+                grade: '5',
+                category: '',
+                sub_category: '',
+                pic_1: this.images[0].name,
+                max_cost: '10000',
+                max_allowed_time: "2020-12-29"
+            }
+            this.$axios.post('/api/questions/', obj).then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log({e});
+            });
         }
     },
     data() {
         return {
+            subject: '',
+            desc: '',
+            max_cost: 0,
             categories: [],
             ddOpen: 0,
             dd1: [],
