@@ -3,7 +3,8 @@
 image: node:latest
 
 before_script:
-  - npm install
+  - docker info
+
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -20,4 +21,4 @@ cache:
 start:
   stage: build
   script:
-    - npm run start 
+    - npm -v
