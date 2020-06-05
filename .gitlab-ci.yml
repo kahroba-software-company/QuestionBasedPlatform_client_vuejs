@@ -11,13 +11,12 @@ cache:
   paths:
     - node_modules/
 
-build:
-  stage: build
-  script:
-    - npm i
-    - npm run build
+# build:
+#   stage: build
+#   script:
+#     - npm i
+#     - npm run build
 
 start:
   script:
-    - npm i 
     - npm run start 
