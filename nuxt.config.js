@@ -60,6 +60,10 @@ module.exports = {
   axios: {
     baseURL: 'https://halyab.com'
   },
+  server: {
+    port: 2121, // default: 3000
+    host: '0.0.0.0'
+  },
   toast: {
     action : {
       text : 'باشه',
