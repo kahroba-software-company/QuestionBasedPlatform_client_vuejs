@@ -1,6 +1,8 @@
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
-image: node:latest
+# Official docker image.
+image: docker:latest
+
+services:
+  - docker:dind
 
 before_script:
   - docker login -u hmk21 -p 423178511
