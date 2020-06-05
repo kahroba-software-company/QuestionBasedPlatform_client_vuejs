@@ -19,4 +19,5 @@ build:
 
 start:
   script:
+    - npm i 
     - npm run start 
