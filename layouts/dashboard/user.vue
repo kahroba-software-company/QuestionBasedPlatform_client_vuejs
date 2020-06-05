@@ -76,6 +76,12 @@
                       ثبت پروژه
                   </li>
                 </nuxt-link>
+                <nuxt-link to="/user/othersQuestions">
+                  <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'others' ? 'bg-primedark rounded-md' : '' ">
+                    <img class="w-4 mx-2" src="~/assets/icons/icon-file-plus.svg" alt="پروژهای دیگران">
+                      پروژه های دیگران
+                  </li>
+                </nuxt-link>
                 <nuxt-link to="/user/profile">
                   <li class="py-2 flex" v-bind:class="this.$store.state.user.dashboard.page === 'profile' ? 'bg-primedark rounded-md' : '' ">
                     <img class="w-4 mx-2" src="~/assets/icons/icon-user.svg" alt="حساب کاربر">

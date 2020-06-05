@@ -2,48 +2,45 @@
     <div class="user-dash sm:pr-250   content-center h-full sm:h-full flex flex-col">
         <div class="p-10">
             <div class="flex flex-col rounded-md bg-white rouended-md w-full h-full shadow-md ">
-                <div class=" text-center ">
-                    <h2 class="m-5 p-2 rounded  ">
-                        گردش های مالی من
-                    </h2>
-                    <!-- <nuxt-link to='questions/add'>
-                        <button class="flex justify-center items-center bg-green text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
-                            ثبت پروژه
-                            <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
-                        </button>
-                    </nuxt-link> -->    
+                <div class="flex justify-between items-center">
+                  <div class="p-4 text-center">
+                          گردش های مالی من
+                  </div>
+                  <nuxt-link to='questions/add'>
+                    <button class="flex justify-center items-center bg-green text-white font-bold p-2 m-4 rounded focus:outline-none focus:shadow-outline" style="box-shadow: 5px 5px 14px -6px rgba(23,198,152,0.9);">
+                        افزایش اعتبار
+                        <img class="w-4 mx-2" src="~/assets/icons/plus.svg"/>
+                    </button>
+                  </nuxt-link>
                 </div>
                 <hr class="w-full mb-5">
         <div v-if="transactions.length === 0" class="bg-white w-full flex flex-col  items-center p-12">
-            <img class="w-20" src="~/assets/icons/empty-box.svg" alt="جعبه خالی">
-            <p class="font-bold">
-                نتیجه ای یافت نشد
-            </p>
-            <p>
-                لیست تراکنش ها خالیست !
-            </p>
+          <img class="w-20" src="~/assets/icons/empty-box.svg" alt="جعبه خالی">
+          <p class="font-bold">
+              نتیجه ای یافت نشد
+          </p>
+          <p>
+              لیست تراکنش ها خالیست !
+          </p>
         </div>
-        <div v-else class="bg-white  w-full h-full  flex flex-col   rounded-b-md">
-            <div class="w-2/5   ml-auto mr-auto   flex bg-white m-2 shadow-md rounded-md h-fit" v-for="tsa in transactions" v-bind:key="tsa.id">
-                <div class="w-fit rounded-md rounded-l-none h-auto flex justify-center items-center" style="writing-mode: tb-rl;">
+        <div v-else class="bg-white w-full h-full flex flex-col items-center rounded-b-md">
+            <div class="w-3/5 flex justify-between items-center p-4 bg-white m-2 shadow-md rounded-md" v-for="tsa in transactions" v-bind:key="tsa.id">
+                <div class="w-fit rounded-md rounded-l-none h-auto flex justify-center items-center" >
+                    <div v-bind:class="tsa.state !== 1 ? 'bg-red' : tsa.state === 1 && tsa.transaction_type === 'increase' ? 'bg-green' : 'bg-orange'" class="w-3 h-3 rounded-full">
+                    </div>
                     <p class="p-2">
                         {{ tsa.state !== 1 ? "ناموفق" : tsa.state === 1 && tsa.transaction_type === 'increase' ? "واریز" : "برداشت" }}
                     </p>
-                    <div v-bind:class="tsa.state !== 1 ? 'bg-red' : tsa.state === 1 && tsa.transaction_type === 'increase' ? 'bg-green' : 'bg-orange'" class="w-3 h-3 rounded-full">
-                        
-                    </div>
                 </div>
-                <div class="  bg-white flex flex-row justify-between my-auto">
-                    <div class="mx-2 text-secondary-700 ">
-                        {{ tsa.transaction_type === 'increase' ? "+" : "-" }} {{tsa.amount_comma}} تومان
-                    </div>
-                    <div v-bind:class="tsa.state_name !== 'موفق' ? 'text-red' : tsa.state_name === 'موفق'  ? 'text-green' : 'bg-orange'" >
-                        {{ tsa.state_name }}
-                    </div>
-               
-                    <div class="mr-5">
-                        {{ tsa.jcreate_time }}
-                    </div>
+                <div class="mx-2 text-secondary-700 ">
+                    {{ tsa.transaction_type === 'increase' ? "+" : "-" }} {{tsa.amount_comma}} تومان
+                </div>
+                <div v-bind:class="tsa.state_name !== 'موفق' ? 'text-red' : tsa.state_name === 'موفق'  ? 'text-green' : 'bg-orange'" >
+                    {{ tsa.state_name }}
+                </div>
+            
+                <div class="mr-5">
+                    {{ tsa.jcreate_time }}
                 </div>
             </div>
         </div>
